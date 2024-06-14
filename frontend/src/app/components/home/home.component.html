@@ -71,17 +71,17 @@
       <!-- Products tab & slick -->
       <div class="col-md-12">
         <div class="row">
-          <div class="col-md-4 col-sm-6" *ngFor="let p of products">
-            <div class="card my-2">
+          <div class="col-md-4 col-sm-6 my-3" *ngFor="let p of products">
+            <div class="card my-2 h-100">
               <img [src]="p.image" alt="{{p.name}}" width="200px" class="card-img-top" style="cursor: pointer;" (click)="selectProduct(p.id)">
-              <div class="card-header">
+              <div class="card-header h-25">
                 <div class="card-title">
                   <p>{{p.name | titlecase}}</p>
                 </div>
               </div>
               <div class="card-body">
-                <h6>{{p.description.substr(0, 25)}} ...</h6>
-                <p class="lead">{{p.price | currency:'GBP'}}</p>
+                <h6>{{p.description.substr(0, 25)}}...</h6>
+                <div class="rounded-pill home-price-tag"><strong>{{p.price | currency:'&#x20bd;'}}</strong></div>
               </div>
 
               <div class="row d-flex justify-content-center border-primary my-3">
@@ -91,7 +91,7 @@
                   [class.btn-outline-danger]="p.quantity < 1"
                   (click)="AddToCart(p.id)"
                   >
-                    {{ p.quantity < 1 ? "NO STOCK" : "Add To Cart"}}
+                    {{ p.quantity < 1 ? "Нет в наличии" : "В корзину"}}
                   </button>
                 </div>
               </div>
@@ -180,11 +180,11 @@
     <div class="row">
       <div class="col-md-12">
         <div class="newsletter">
-          <p>Подпишись на <strong>НОВОСТИ ТЕХНИКИ</strong></p>
+          <!-- <p>Подпишись на <strong>НОВОСТИ ТЕХНИКИ</strong></p>
           <form>
             <input class="input" type="email" placeholder="Enter Your Email">
             <button class="newsletter-btn"><i class="fa fa-envelope"></i> Подписаться</button>
-          </form>
+          </form> -->
           <ul class="newsletter-follow">
             <li>
               <a href="#"><i class="fa fa-facebook"></i></a>

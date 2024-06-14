@@ -73,12 +73,12 @@
               <i class="fa fa-star"></i>
               <i class="fa fa-star"></i>
               <i class="fa fa-star-o"></i>
-            </div>
+            <!-- </div>
             <a class="review-link" href="#">10 обзоров | Добавить свой</a>
           </div>
-          <div>
-            <h3 class="product-price">{{product.price | currency:'RUB'}}</h3>
-            <span class="product-available">In Stock</span>
+          <div> -->
+            <h3 class="product-price">{{product.price | currency:'&#x20bd;'}}</h3>
+            <span class="product-available">В наличии</span>
           </div>
           <p>
             {{product.description}}
@@ -98,7 +98,7 @@
                 <span class="qty-down" (click)="Decrease()">-</span>
               </div>
             </div>
-            <button class="add-to-cart-btn" (click)="addToCart(product?.id)"><i class="fa fa-shopping-cart"></i> Add To Cart</button>
+            <button class="add-to-cart-btn" (click)="addToCart(product?.id)"><i class="fa fa-shopping-cart"></i>В корзину</button>
           </div>
 
           <ul class="product-btns">

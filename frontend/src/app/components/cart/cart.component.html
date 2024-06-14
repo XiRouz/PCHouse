@@ -31,7 +31,7 @@
 
              <td><p>{{c.product.name}}</p></td>
 
-             <td><p>{{c.product.price | currency:'RUB'}}</p></td>
+             <td><p>{{c.product.price | currency:'&#x20bd;'}}</p></td>
 
              <td>
                <form>
@@ -46,7 +46,7 @@
              </td>
 
              <td>
-               <p>{{cartService.CalculateSubTotal(i) | currency:'RUB'}}</p>
+               <p>{{cartService.CalculateSubTotal(i) | currency:'&#x20bd;'}}</p>
              </td>
            </tr>
 
@@ -55,7 +55,7 @@
             <td></td>
             <td></td>
             <td>Всего</td>
-            <td>{{cartTotal | currency:'RUB'}}</td>
+            <td>{{cartTotal | currency:'&#x20bd;'}}</td>
           </tr>
 
           </tbody>
@@ -64,7 +64,7 @@
 
       <div class="col-md-12 d-flex mb-5">
         <div class="d-flex justify-content-between flex-sm-column flex-md-row w-100">
-          <a routerLink="/checkout" class="btn btn-danger btn-sm order-1">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+          <a routerLink="/checkout" class="btn btn-danger btn-sm order-1">Оформление заказа <i class="fa fa-arrow-circle-right"></i></a>
           <a routerLink="/" class="btn btn-success btn-sm order-0"><i class="fa fa-arrow-circle-left"></i> Продолжить покупки</a>
         </div>
       </div>

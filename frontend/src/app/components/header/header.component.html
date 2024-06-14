@@ -9,7 +9,7 @@
         <li><a href="#"><i class="fa fa-map-marker"></i> Грабцевское шоссе 126</a></li>
       </ul>
       <ul class="header-links pull-right">
-        <li><a routerLink="/profile"><i class="fa fa-sign-in"></i> {{authState === false ? 'LOGIN' : 'My Account'}}</a></li>
+        <li><a routerLink="/profile"><i class="fa fa-sign-in"></i> {{authState === false ? 'Войти' : 'Мой аккаунт'}}</a></li>
         <li *ngIf="!authState"><a routerLink="/register"><i class="fa fa-user-plus"></i> Регистрация</a></li>
         <li><a routerLink="/admin" *ngIf="authState"><i class="fa fa-user-plus"></i> Администратор</a></li>
       </ul>
@@ -80,14 +80,14 @@
                     </div>
                     <div class="product-body">
                       <h3 class="product-name"><a href="#">{{c.product.name}}</a></h3>
-                      <h4 class="product-price"><span class="qty">{{c.numInCart}} x </span> {{c.product?.price | currency:'RUB'}} </h4>
+                      <h4 class="product-price"><span class="qty">{{c.numInCart}} x </span> {{c.product?.price | currency:'&#x20bd;'}} </h4>
                     </div>
                     <button class="delete" (click)="cartService.DeleteProductFromCart(i)"><i class="fa fa-close"></i></button>
                   </div>
                 </div>
                 <div class="cart-summary">
-                  <small>{{cartData.data[0].numInCart !== 0 ? cartData.data.length : 0}} Item(s) selected</small>
-                  <h5>TOTAL: {{ cartTotal | currency:'RUB'}}</h5>
+                  <small>{{cartData.data[0].numInCart !== 0 ? cartData.data.length : 0}} Товар(ы) выбран(ы)</small>
+                  <h5>ИТОГО: {{ cartTotal | currency:'&#x20bd;'}}</h5>
                 </div>
                 <div class="cart-btns">
                   <a routerLink="/cart">Корзина</a>
@@ -126,8 +126,8 @@
       <!-- NAV -->
       <ul class="main-nav nav py-3">
         <li class="active"><a routerLink="/">Главная</a></li>
-        <li><a href="#">Акции</a></li>
-        <li><a href="#">Категории</a></li>
+        <!-- <li><a href="#">Акции</a></li> -->
+        <!-- <li><a href="#">Категории</a></li> -->
         <li><a href="/about">О нас</a></li>
       </ul>
       <!-- /NAV -->

@@ -75,9 +75,9 @@ router.post('/register', [
             photoUrl: photoUrl
         }).then(lastId => {
             if (lastId > 0) {
-                res.status(201).json({message: 'Registration successful'});
+                res.status(201).json({message: 'Регистрация успешна'});
             } else {
-                res.status(501).json({message: 'Registration failed'});
+                res.status(501).json({message: 'Не удалось зарегистрироваться'});
             }
         }).catch(err => res.status(433).json({error: err}));
     }

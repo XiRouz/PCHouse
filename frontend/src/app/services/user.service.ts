@@ -34,7 +34,7 @@ export class UserService {
               lname: user.lastName,
               password: '123456'
             }, user.photoUrl, 'social').subscribe(response => {
-              if (response.message === 'Registration successful') {
+              if (response.message === 'Регистрация успешна') {
                 this.auth = true;
                 this.userRole = 555;
                 this.authState$.next(this.auth);

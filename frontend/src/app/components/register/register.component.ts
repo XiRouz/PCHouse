@@ -23,8 +23,8 @@ export class RegisterComponent implements OnInit {
               private userService: UserService) {
 
     this.registrationForm = fb.group({
-      fname: ['', [Validators.required, Validators.minLength(4)]],
-      lname: ['', [Validators.required, Validators.minLength(4)]],
+      fname: ['', [Validators.required, Validators.minLength(1)]],
+      lname: ['', [Validators.required, Validators.minLength(1)]],
       email: ['', [Validators.required, Validators.pattern(this.emailPattern)],
         [this.checkEmailService.emailValidate()]
       ],
@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
         return this.formControls.confirmPassword.value === this.formControls.password.value;
       }))
       .subscribe(passwordState => {
-        console.log(passwordState);
+        console.log("passwordState = " + passwordState);
         this.comparePassword = passwordState;
       });
   }

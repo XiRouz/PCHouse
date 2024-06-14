@@ -13,25 +13,38 @@
         <hr>
       </div>
     </div>
+    <div class="row mb-2">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <h2> &#10071; Все поля обязательны</h2>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-3 field-label-responsive">
         <label for="fname">Имя</label>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <div class="form-group">
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-prepend" style="width: 2.6rem"><i class="fa fa-user"></i></div>
             <input class="form-control" formControlName="fname" id="fname" name="fname"
-                   placeholder="John"
+                   placeholder="Ваше имя"
                    required type="text">
           </div>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-5">
         <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                          <i class="fa fa-close">Имя должно состоять из 4+ символов</i>
-                        </span>
+          <ng-container *ngIf="formControls.fname.touched && formControls.fname.hasError('required')">
+            <span class="text-danger align-middle ">
+              <i class="fa fa-close"></i><small> Обязательное поле</small>
+            </span>
+          </ng-container>
+          <ng-container *ngIf="formControls.fname.valid">
+            <span class="text-success align-middle ">
+              <i class="fa fa-check"></i>
+            </span>
+          </ng-container>
         </div>
       </div>
     </div>
@@ -39,21 +52,28 @@
       <div class="col-md-3 field-label-responsive">
         <label for="lname">Фамилия</label>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <div class="form-group">
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-prepend" style="width: 2.6rem"><i class="fa fa-user"></i></div>
             <input class="form-control" formControlName="lname" id="lname" name="lname"
-                   placeholder="Doe"
+                   placeholder="Ваша фамилия"
                    required type="text">
           </div>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-5">
         <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                          <i class="fa fa-close">Фамилия должна состоять из 4+ символов</i>
-                        </span>
+          <ng-container *ngIf="formControls.lname.touched && formControls.lname.errors">
+            <span class="text-danger align-middle ">
+              <i class="fa fa-close"></i><small> Обязательное поле</small>
+            </span>
+          </ng-container>
+          <ng-container *ngIf="formControls.lname.valid">
+            <span class="text-success align-middle ">
+              <i class="fa fa-check"></i>
+            </span>
+          </ng-container>
         </div>
       </div>
     </div>
@@ -61,40 +81,44 @@
       <div class="col-md-3 field-label-responsive">
         <label for="email">E-Mail </label>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <div class="form-group">
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
             <input class="form-control" formControlName="email" id="email" name="email"
-                   placeholder="you@example.com"
+                   placeholder="Ваш@email.ru"
                    required type="text">
           </div>
         </div>
 
       </div>
-      <div class="col-md-3">
+      <div class="col-md-5">
         <div class="form-control-feedback">
-          <ng-container *ngIf="formControls.email.errors?.taken && formControls.email.touched">
+          <ng-container *ngIf="formControls.email.hasError('taken') && formControls.email.touched">
              <span class="text-danger align-middle">
-                <i class="fa fa-close"> Email уже используется</i>
+                <i class="fa fa-close"></i><small> Email уже используется</small>
              </span>
           </ng-container>
           <ng-container *ngIf="formControls.email.pending && formControls.email.touched">
             <span class="text-info align-middle">
-              <i class="fa fa-hourglass"> Проверка Email ....</i>
+              <i class="fa fa-hourglass"></i><small> Проверка Email...</small>
             </span>
           </ng-container>
           <ng-container *ngIf="!formControls.email.errors && formControls.email.touched && !formControls.email.pending">
              <span class="text-success align-middle">
-                            <i class="fa fa-check"> Email доступен</i>
+                            <i class="fa fa-check"></i><small> Email доступен</small>
                         </span>
           </ng-container>
-          <ng-container *ngIf="formControls.email.errors?.required && formControls.email.touched">
-                          <span class="text-danger align-middle">
-                            <i class="fa fa-check"> Email занят</i>
+          <ng-container *ngIf="formControls.email.hasError('required') && formControls.email.touched">
+                          <span class="text-danger align-middle ">
+                            <i class="fa fa-close"></i><small> Обязательное поле</small>
                         </span>
           </ng-container>
-
+          <ng-container *ngIf="formControls.email.valid">
+            <span class="text-success align-middle ">
+              <i class="fa fa-check"></i>
+            </span>
+          </ng-container>
         </div>
       </div>
     </div>
@@ -102,18 +126,28 @@
       <div class="col-md-3 field-label-responsive">
         <label for="password">Пароль</label>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <div class="form-group has-danger">
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
             <input class="form-control" formControlName="password" id="password" name="password"
-                   placeholder="Password"
+                   placeholder="Пароль"
                    required type="password">
           </div>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-5">
         <div class="form-control-feedback">
+          <ng-container *ngIf="formControls.password.touched && formControls.password.hasError('minlength')">
+            <span class="text-danger align-middle ">
+              <i class="fa fa-close"></i><small> Пароль должен состоять из 6+ символов</small>
+            </span>
+          </ng-container>
+          <ng-container *ngIf="formControls.password.valid">
+            <span class="text-success align-middle ">
+              <i class="fa fa-check"></i>
+            </span>
+          </ng-container>
         </div>
       </div>
     </div>
@@ -121,7 +155,7 @@
       <div class="col-md-3 field-label-responsive">
         <label for="password">Подтвердить пароль</label>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <div class="form-group">
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon" style="width: 2.6rem">
@@ -129,16 +163,21 @@
             </div>
             <input class="form-control" formControlName="confirmPassword" id="password-confirm"
                    name="password-confirmation"
-                   placeholder="Password" required type="password">
+                   placeholder="Подтвердите пароль" required type="password">
           </div>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-5">
         <div class="form-control-feedback">
-          <ng-container *ngIf="!comparePassword && formControls.confirmPassword.touched">
+          <ng-container *ngIf="!comparePassword && (formControls.confirmPassword.dirty || formControls.confirmPassword.touched)">
                           <span class="text-danger align-middle">
-                            <i class="fa fa-close"></i>Пароли не совпадают
+                            <i class="fa fa-close"></i><small> Пароли не совпадают</small>
                         </span>
+          </ng-container>
+          <ng-container *ngIf="comparePassword && formControls.confirmPassword.valid">
+            <span class="text-success align-middle ">
+              <i class="fa fa-check"></i>
+            </span>
           </ng-container>
         </div>
       </div>
@@ -146,8 +185,8 @@
     <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-6">
-        <button [disabled]="(registrationForm.invalid || registrationForm.pending) && registrationForm.touched "
-                class="btn btn-success" type="submit">
+        <button [disabled]="(!registrationForm.valid || registrationForm.pending) " 
+                class="btn btn-success" type="submit"> <!-- && registrationForm.touched -->
           <i class="fa fa-user-plus"></i> Зарегистрироваться
         </button>
       </div>
