@@ -10,7 +10,7 @@ router.get('/', function (req, res) {
         if (list.length > 0) {
             res.json({users: list});
         } else {
-            res.json({message: 'NO USER FOUND'});
+            res.json({message: 'Пользователи не найдены'});
         }
     }).catch(err => res.json(err));
 });
@@ -80,7 +80,7 @@ router.patch('/:userId', async (req, res) => {
             fname: userFirstName !== undefined ? userFirstName : user.fname,
             lname: userLastName !== undefined ? userLastName : user.lname,
             age: age !== undefined ? age : user.age
-        }).then(result => res.json('User updated successfully')).catch(err => res.json(err));
+        }).then(result => res.json('Пользователь успешно обновлён')).catch(err => res.json(err));
     }
 });
 

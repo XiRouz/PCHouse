@@ -23,7 +23,7 @@ export class AllProductsComponent implements OnInit, OnDestroy {
     this.hasError = false;
     this.subs.push(this.productService.getAllProducts().subscribe((prods: any) => {
       this.products = prods.products;
-      // console.log(this.products);
+      console.log(this.products);
     }));
   }
 

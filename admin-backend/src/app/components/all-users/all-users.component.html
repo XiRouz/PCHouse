@@ -14,28 +14,26 @@
           <thead class="bg-dark text-light">
           <tr>
             <th>Id</th>
-            <th width="20%">Название</th>
-            <th width="40%">Описание</th>
-            <th>Цена</th>
-            <th>Категория</th>
+            <th width="20%">Имя</th>
+            <th width="20%">Фамилия</th>
+            <th>Email</th>
             <th>Действие</th>
           </tr>
           </thead>
   
           <tbody>
-          <tr *ngFor="let p of products">
-            <td>{{ p.id }}</td>
-            <td>{{ p.name }}</td>
-            <td>{{ p.description }}</td>
-            <td>{{ p.price | currency:'&#x20bd;' }}</td>
-            <td>{{ p.category }}</td>
+          <tr *ngFor="let user of users">
+            <td>{{ user.id }}</td>
+            <td>{{ user.fname }}</td>
+            <td>{{ user.lname }}</td>
+            <td>{{ user.email }}</td>
             <td>
-              <button class="btn btn-sm btn-danger" (click)="deleteProduct(p.id)">Удалить</button>
+              <button class="btn btn-sm btn-danger" (click)="TODO">Удалить</button>
             </td>
           </tr>
           </tbody>
         </table>
       </div>
     </div>
-  </div>  
+  </div>
 </div>

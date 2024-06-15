@@ -1,0 +1,41 @@
+<div class="content-wrapper">
+    <div class="container my-5">
+        <div class="row">
+          <div class="col-12">
+            <div class="alert alert-danger" [hidden]="!hasError">
+              {{ errorMessage }}
+            </div>
+            <div class="alert alert-success" [hidden]="!success">
+              {{ errorMessage }}
+            </div>
+          </div>
+          <div class="col">
+            <table class="table table-bordered">
+              <thead class="bg-dark text-light">
+              <tr>
+                <th width="20%">Id заказа</th>
+                <th>Название</th>
+                <!-- <th>Описание</th> -->
+                <th>Цена</th>
+                <th>Пользователь</th>
+                <th>Действие</th>
+              </tr>
+              </thead>
+      
+              <tbody>
+              <tr *ngFor="let o of orders">
+                <td>{{ o.id }}</td>
+                <td>{{ o.title }}</td>
+                <!-- <td>{{ o.description }}</td> -->
+                <td>{{ o.price | currency:'&#x20bd;'}}</td>
+                <td>{{ o.username }}</td>
+                <td>
+                  <button class="btn btn-sm btn-danger" (click)="TODO">Удалить</button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>    
+</div>

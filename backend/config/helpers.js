@@ -74,11 +74,11 @@ module.exports = {
 				req.role = user.role;
                 next();
             } else {
-                res.status(401).json({message: "Username or password incorrect", status: false});
+                res.status(401).json({message: "Неверный логин и/или пароль", status: false});
             }
             
         } else {
-            res.status(401).json({message: "Username or password incorrect", status: false});
+            res.status(401).json({message: "Неверный логин и/или пароль", status: false});
         }
 	}
 };

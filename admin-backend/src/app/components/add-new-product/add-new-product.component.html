@@ -1,0 +1,95 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Добавление товара</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Главная</a></li>
+                        <li class="breadcrumb-item active">Добавить новый товар</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Добавить новый товар</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form role="form">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="input_title">Название</label>
+                                    <input type="text" class="form-control" id="input_title"
+                                        placeholder="Название">
+                                </div>
+                                <div class="form-group">
+                                    <label for="input_description">Описание</label>
+                                    <input type="text" class="form-control" id="input_description"
+                                        placeholder="Описание">
+                                </div>
+                                <div class="form-group">
+                                    <label for="input_short_desc">Короткое описание</label>
+                                    <input type="text" class="form-control" id="input_short_desc"
+                                        placeholder="Короткое описание">
+                                </div>
+                                <!-- select -->
+                                <div class="form-group">
+                                    <label>Категория</label>
+                                    <select class="custom-select">
+                                        <option *ngFor="let c of categories" value="{{c.id}}">
+                                            {{c.title}}
+                                          </option>
+                                        <option>option 2</option>
+                                        <option>option 3</option>
+                                        <option>option 4</option>
+                                        <option>option 5</option>
+                                    </select>
+                                </div>
+                                <label for="input_price">Цена</label>
+                                <div class="input-group">                                    
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                          <i class="fas fa-ruble-sign"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" id="input_price" placeholder="Цена">
+                                </div>
+                                <div class="form-group">
+                                    <label for="input_quantity">Количество</label>
+                                    <input type="text" class="form-control" id="input_quantity"
+                                        placeholder="Число товаров">
+                                </div>
+                                <div class="form-group">
+                                    <label for="input_image">Основная картинка</label>
+                                    <input type="text" class="form-control" id="input_image"
+                                        placeholder="Введите ссылку на картинку">
+                                </div>
+                                <div class="form-group">
+                                    <label>Дополнительные картинки</label>
+                                    <textarea class="form-control" rows="3" placeholder="Введите ссылки на картинки через ';'"></textarea>
+                                </div>                                
+                            </div>
+                            <!-- /.card-body -->
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Добавить товар</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

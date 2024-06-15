@@ -99,6 +99,11 @@
                 <i class="fa fa-close"></i><small> Email уже используется</small>
              </span>
           </ng-container>
+          <ng-container *ngIf="formControls.email.hasError('pattern') && (formControls.email.dirty || formControls.email.touched)">
+            <span class="text-danger align-middle">
+               <i class="fa fa-close"></i><small> Email не соответствует шаблону</small>
+            </span>
+         </ng-container>
           <ng-container *ngIf="formControls.email.pending && formControls.email.touched">
             <span class="text-info align-middle">
               <i class="fa fa-hourglass"></i><small> Проверка Email...</small>
@@ -113,11 +118,6 @@
                           <span class="text-danger align-middle ">
                             <i class="fa fa-close"></i><small> Обязательное поле</small>
                         </span>
-          </ng-container>
-          <ng-container *ngIf="formControls.email.valid">
-            <span class="text-success align-middle ">
-              <i class="fa fa-check"></i>
-            </span>
           </ng-container>
         </div>
       </div>

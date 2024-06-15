@@ -97,7 +97,7 @@ export class CartService {
         this.cartDataClient.total = this.cartDataServer.total;
         localStorage.setItem('cart', JSON.stringify(this.cartDataClient));
         this.cartData$.next({...this.cartDataServer});
-        this.toast.success(`${prod.name} added to the cart`, 'Product Added', {
+        this.toast.success(`${prod.name} добавлен в корзину`, 'Товар добавлен', {
           timeOut: 1500,
           progressBar: true,
           progressAnimation: 'increasing',
@@ -120,7 +120,7 @@ export class CartService {
           this.CalculateTotal();
           this.cartDataClient.total = this.cartDataServer.total;
           localStorage.setItem('cart', JSON.stringify(this.cartDataClient));
-          this.toast.info(`${prod.name} quantity updated in the cart`, 'Product Updated', {
+          this.toast.info(`${prod.name}: количество товара обновлено`, 'Товар обновлён', {
             timeOut: 1500,
             progressBar: true,
             progressAnimation: 'increasing',
@@ -137,7 +137,7 @@ export class CartService {
             incart: 1,
             id: prod.id
           });
-          this.toast.success(`${prod.name} added to the cart`, 'Product Added', {
+          this.toast.success(`${prod.name} добавлен в корзину`, 'Товар добавлен', {
             timeOut: 1500,
             progressBar: true,
             progressAnimation: 'increasing',
@@ -180,7 +180,7 @@ export class CartService {
   }
 
   DeleteProductFromCart(index: number) {
-    if (window.confirm('Are you sure you want to remove the item?')) {
+    if (window.confirm('Вы уверены что хотите удалить этот товар из корзины?')) {
       this.cartDataServer.data.splice(index, 1);
       this.cartDataClient.prodData.splice(index, 1);
       this.CalculateTotal();
@@ -239,7 +239,7 @@ export class CartService {
       } else {
         this.spinner.hide().then();
         this.router.navigateByUrl('/checkout').then();
-        this.toast.error(`Sorry, failed to book the order`, 'Order Status', {
+        this.toast.error(`Ошибка! Не удалось оформить заказ`, 'Статус заказа', {
           timeOut: 1500,
           progressBar: true,
           progressAnimation: 'increasing',

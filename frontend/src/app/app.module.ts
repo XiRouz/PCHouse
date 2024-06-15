@@ -61,7 +61,7 @@ import { AdminComponent } from './components/admin/admin.component';
         providers: [
           {
             id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider('799705726167-vn6184fsovmps0kpbg5c7jabv15r3ias.apps.googleusercontent.com')
+            provider: new GoogleLoginProvider('1081819459547-39v24veen5tfk6t5t0k294ce65a8kq4h.apps.googleusercontent.com')
           }
         ],
         onError: (err) => {

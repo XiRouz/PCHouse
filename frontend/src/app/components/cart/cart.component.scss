@@ -9,13 +9,15 @@ form {
 }
 
 .value-button {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid #ddd;
   margin: 0px;
   width: 40px;
   height: 40px;
-  vertical-align: middle;
-  padding: 10px 0 12px;
+
+  // padding: 10px 0 12px;
   text-align: center;
   background: #eee;
   -webkit-touch-callout: none;

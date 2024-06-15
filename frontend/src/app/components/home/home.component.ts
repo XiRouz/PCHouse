@@ -33,4 +33,6 @@ export class HomeComponent implements OnInit {
   AddToCart(id: number) {
     this.cartService.AddProductToCart(id);
   }
+
+  // 23 june 12.00 = 1719144000
 }

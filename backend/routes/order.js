@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
         .getAll()
         .then(orders => {
             if (orders.length > 0) {
-                res.json(orders);
+                res.json({orders: orders});
             } else {
                 res.json({message: "No orders found"});
             }

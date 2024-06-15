@@ -63,11 +63,13 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "admin-backend:build"
+            "browserTarget": "admin-backend:build",
+            "port" : 4500
           },
           "configurations": {
             "production": {
-              "browserTarget": "admin-backend:build:production"
+              "browserTarget": "admin-backend:build:production",
+              "port": 4500
             }
           }
         },
