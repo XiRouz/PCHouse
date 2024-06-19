@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {EmailValidator, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CheckEmailService} from '../../validators/check-email.service';
 import {UserService} from '../../services/user.service';
+import {Router} from '@angular/router';
 import {map} from 'rxjs/operators';
 
 @Component({
@@ -20,7 +21,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private checkEmailService: CheckEmailService,
-              private userService: UserService) {
+              private userService: UserService,
+              private router: Router) {
 
     this.registrationForm = fb.group({
       fname: ['', [Validators.required, Validators.minLength(1)]],
@@ -49,6 +51,10 @@ export class RegisterComponent implements OnInit {
       });
   }
 
+  redirectToLogin() {
+    window.location.href = window.location.origin + '/login'
+  }
+
   registerUser() {
 
     if (this.registrationForm.invalid) {
@@ -56,8 +62,15 @@ export class RegisterComponent implements OnInit {
     }
 
     // @ts-ignore
-    this.userService.registerUser({...this.registrationForm.value}).subscribe((response: { message: string }) => {
+    this.userService.registerUser({...this.registrationForm.value}).subscribe((response: { ok: string?, message: string }) => {
       this.registrationMessage = response.message;
+      if (response.ok) {
+        // this.userService.auth = true;
+        // this.userService.authState$.next(true);
+        // this.userService.userData$.next(user);
+        setTimeout(this.redirectToLogin, 3000);
+      }
+      
     });
 
     this.registrationForm.reset();
